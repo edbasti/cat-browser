@@ -5,7 +5,6 @@ import { useNavigate } from "react-router";
 
 const Cat = ({ data }) => {
   const navigate = useNavigate();
-  console.log(data);
   const handleClick = () => {
     navigate(`/cat/${data.breeds[0].name}`,
       {
@@ -20,14 +19,12 @@ const Cat = ({ data }) => {
   }
 
   return (
-    <>
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={data.url} />
-        <Card.Body>
-          <Button variant="primary" onClick={handleClick}>View Details</Button>
-        </Card.Body>
-      </Card>
-    </>
+    <Card xs={4}>
+      <Card.Img variant="top" src={data.url}/>
+      <Card.Body style={{display: 'flex', flexDirection: 'column'}}>
+        <Button variant="primary" onClick={handleClick}>View Details</Button>
+      </Card.Body>
+    </Card>
   );
 }
 
